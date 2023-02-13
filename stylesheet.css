@@ -18,3 +18,8 @@ h2 {
     text-align: center;
     font-size: 15px;
 }
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
