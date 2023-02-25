@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Happy Birthday!</title>
+
+        <style>
+
+            body {
+
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+
+            }
+
+            #card {
+                position: relative;
+                box-sizing: border-box;
+                width: 400px;
+                height: 600px;
+                margin: auto;
+                border: 1px solid black;
+                overflow: hidden;
+            }
+            @keyframes openCard {
+                from {
+                    width: 400px;
+                }
+                to {
+                    width: 800px;
+                }
+            }
+            @keyframes closeCard {
+                from {
+                    width: 800px;
+                }
+                to {
+                    width: 400px;
+                }
+            }
+
+            #outside {
+                position: absolute;
+                box-sizing: border-box;
+                top: 0;
+                left: 0;
+                width: 400px;
+                height: 600px;
+                margin: 0;
+                padding-top: 100px;
+                border: 1px solid black;
+                background-color: #ccc;
+            }
+
+            #buttonContainer {
+                margin: auto;
+            }
+
+            #bigRedButton {
+                position: relative;
+                box-sizing: border-box;
+                top: -10px;
+                left: -10px;
+                width: 200px;
+                height: 200px;
+                border: 5px solid #900;
+                border-radius: 50%;
+                background-color: #f00;
+                box-shadow: 10px 10px 0 #700;
+                font-size: 50px;
+                font-weight: bolder;
+            }
+            #bigRedButton:hover {
+                top: -15px;
+                left: -15px;
+                border: 10px solid #800;
+                background-color: #e00;
+                box-shadow: 15px 15px 0 #600;
+            }
+            #bigRedButton:active {
+                top: 0;
+                left: 0;
+                box-shadow: 0 0 0 0;
+            }
+
+            #inside {
+                position: absolute;
+                box-sizing: border-box;
+                left: 400px;
+                width: 400px;
+                height: 600px;
+                padding-top: 100px;
+                border: 1px solid black;
+                background-color: #ddd;
+            }
+
+            #signature {
+                margin-top: 0px;
+                font-size: 30px;
+                font-family: cursive;
+                font-style: italic;
+            }
+
+            #bottom {
+                width: fit-content;
+                margin: auto;
+                margin-top: 10px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="card">
+
+            <div id="outside">
+                <h1>Today is a special day,</h1>
+                <div id="buttonContainer">
+                    <button type="button" id="bigRedButton" onclick="buttonClick()">Click Me!</button>
+                </div>
+                <h2>So, installed a big red button into your card for you!<br>I wonder what it does...</h2>
+            </div>
+
+            <div id="inside">
+                <h1>HAPPY BIRTHDAY GRANDPA!!!</h1>
+                <p>I'm sorry I couldn't be here to give you this card in person. So here is a digital card that will be on the internet forever! If you want to see all of the code that went into this you can <a href="">click here</a>.</p>
+                <h3 style="margin-top: 50px; margin-bottom: 0px;">Have a great day grandpa.<br>Sincerely,</h3>
+                <h2 id="signature">Kaden</h2>
+            </div>
+
+        </div>
+
+        <div id="bottom">
+            
+        </div>
+    </body>
+
+    <script>
+
+        var card = document.getElementById("card");
+        var outside = document.getElementById("outside");
+        var inside = document.getElementById("inside");
+        
+        var isCardOpen = false;
+
+        function buttonClick() {
+
+            if(isCardOpen) {
+
+                closeCard();
+                isCardOpen = false;
+
+            }
+            else {
+
+                openCard();
+                isCardOpen = true;
+
+            }
+        }
+
+        function closeCard() {
+
+            card.style.animation = "closeCard 1s ease forwards";
+            //inside.style.opacity = 0;
+            //inside.style.left = "0px";
+
+        }
+
+        function openCard() {
+
+            //card.style.width = "800px";
+            card.style.animation = "openCard 1s ease forwards";
+            //inside.style.opacity = 1;
+            //inside.style.left = "400px";
+
+        }
+
+    </script>
+
+</html>
